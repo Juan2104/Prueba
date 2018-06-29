@@ -1,0 +1,93 @@
+﻿
+
+using SistemaSLS.Data.Context;
+using SistemaSLS.Domain.Entities;
+using SistemaSLS.Data.Repositories;
+using SistemaSLS.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using SistemaSLS.Data.Repositories.Base;
+
+namespace SistemaSLS.Service.Services
+{
+   public class TipoPersonaService
+    {
+        private readonly IBaseRepository<TipoPersona> _TipoPersonaRepository;
+        private readonly ISlsContext SlsContext;
+
+        public TipoPersonaService(ISlsContext context)
+        {
+            _TipoPersonaRepository = new TipoPersonaRepository(context);
+            SlsContext = context;
+        }
+
+        public TipoPersonaService(IBaseRepository<TipoPersona> TipoPersonaRepository)
+        {
+            _TipoPersonaRepository = TipoPersonaRepository;
+        }
+
+        public int Save(TipoPersona emp)
+        {
+
+            _TipoPersonaRepository.Add(emp);
+            SlsContext.SaveChanges();
+            return 1;
+        }
+
+        public int Edit(TipoPersona emp)
+        {
+            var empToEdit = _TipoPersonaRepository.GetById(emp.id);
+            empToEdit.descripcion = emp.descripcion;
+
+            //empToEdit.= mesa.Descripcion;
+            //rolToEdit.ReadOnly = rol.Edit;
+            //rolToEdit.Edit = rol.ReadOnly;
+            //rolToEdit.EditWho = HttpContext.Current.User.Identity.Name;
+            _TipoPersonaRepository.Update(empToEdit);
+            SlsContext.SaveChanges();
+            return 1;
+        }
+
+        public int Delete(string empID)
+        {
+            try
+            {
+                var empToDelete = _TipoPersonaRepository.GetById(empID);
+                //rolToDelete.EditDate = DateTime.Now;
+                //rolToDelete.Activo = false;
+                //rolToDelete.EditWho = HttpContext.Current.User.Identity.Name;
+                _TipoPersonaRepository.Delete(empToDelete);
+                SlsContext.SaveChanges();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+        }
+        public IEnumerable<TipoPersona> GetAll() //nom
+        {
+            var lp = _TipoPersonaRepository.GetAll().ToList();
+            return lp;
+        }
+
+        public TipoPersona GetById(int id)
+        {
+            try
+            {
+                return _TipoPersonaRepository.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+}
