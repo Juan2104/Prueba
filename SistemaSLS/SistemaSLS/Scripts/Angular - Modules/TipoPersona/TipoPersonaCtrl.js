@@ -9,7 +9,7 @@
            function ($scope, $filter, $routeParams, $location, TipoPersonaService, NgTableParams) {
                $scope.TipoPersona = {};
 
-               $scope.initTipoPersona= function () {
+               $scope.initTipoPersona = function () {
                    $scope.getTipoPersona();
                }
 
@@ -34,7 +34,7 @@
                        $scope.isSuccess = true;
                        $scope.message = "Se ha agregado el tipo de persona correctamente";
                        $("#ModalMessage").modal('show');
-                       $scope.initEmpresas();
+                       $scope.initTipoPersona();
                    }).catch(function (result) {
                        $scope.isSuccess = false;
                        $scope.message = result.data;
@@ -43,7 +43,7 @@
 
                $scope.editTipoPersona = function () {
                    TipoPersonaService.editTipoPersona($scope.TipoPersona).then(function (response) {
-                       $scope.message = "Se ha editado la mesa correctamente";
+                       $scope.message = "Se ha editado el tipo de persona correctamente";
                        $scope.isSuccess = true;
                        $("#ModalMessage").modal('show');
                        $scope.initTipoPersona();
@@ -54,7 +54,7 @@
                }
 
                $scope.deleteTipoPersona = function () {
-                   TipoPersona.deleteTipoPersona($scope.TipoPersona.id).then(function (response) {
+                   TipoPersonaService.deleteTipoPersona($scope.TipoPersona.id).then(function (response) {
                        $scope.message = "Se ha eliminado el tipo de persona correctamente";
                        $scope.isSuccess = true;
                        $("#ModalMessage").modal('show');

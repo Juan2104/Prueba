@@ -36,19 +36,12 @@ namespace SistemaSLS.Controllers
             return View();
         }
 
-        public JsonResult Get()
+
+        public async Task<JsonResult> Get()
         {
-            try
-            {
-                var results = Mapper.Map<List<TipoPersonaDTO>>(TipoPersonaService.GetAll());
-                return Json(results, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return Json(Mapper.Map<List<TipoPersonaDTO>>(await TipoPersonaService.GetAll()), JsonRequestBehavior.AllowGet);
         }
-    
+
 
         public JsonResult Post(TipoPersonaDTO TipoPersonaDTO)
         {

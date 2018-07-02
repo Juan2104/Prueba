@@ -171,6 +171,7 @@
     <Content Include="Scripts\Angular\angular-strap.min.js" />
     <Content Include="Scripts\Angular\angular-strap.tpl.min.js" />
     <Content Include="Scripts\Angular\angular.min.js" />
+    <Content Include="Scripts\Angular\ng-table.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Angular\angular-animate.min.js.map" />
