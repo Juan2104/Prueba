@@ -2,7 +2,7 @@
 {
     public partial class TipoPersonaDTO
     {
-        public int id { get; set; }
+        public int IdTipoPersona { get; set; }
         public string descripcion { get;  set; }
 
     }

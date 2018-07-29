@@ -165,6 +165,7 @@
     <Content Include="Scripts\Angular\angular-filter.js" />
     <Content Include="Scripts\Angular\angular-material.min.js" />
     <Content Include="Scripts\Angular\angular-messages.js" />
+    <Content Include="Scripts\Angular\angular-messages.min.js" />
     <Content Include="Scripts\Angular\angular-resource.min.js" />
     <Content Include="Scripts\Angular\angular-route.js" />
     <Content Include="Scripts\Angular\angular-sanitize.min.js" />

@@ -9,11 +9,12 @@ namespace SistemaSLS.Domain.Entities
     [Table("TipoPersona")]
     public partial class TipoPersona
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+        [Key]
 
 
-     
-        public int id { get; set; }
+        public int IdTipoPersona { get; set; }
+
 
         
         

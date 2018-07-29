@@ -7,10 +7,19 @@
            'TipoPersonaService',
            'NgTableParams',
            function ($scope, $filter, $routeParams, $location, TipoPersonaService, NgTableParams) {
-               $scope.TipoPersona = {};
-
                $scope.initTipoPersona = function () {
                    $scope.getTipoPersona();
+               }
+
+               $scope.getTipoPersona = function () {
+                   $scope.isLoading = true;
+                   TipoPersonaService.getTipoPersona().then(function (response) {
+                       $scope.dataToFilter = angular.copy(response.data);
+                       $scope.Tipo = new NgTableParams({ count: 20 }, { counts: [], dataset: response.data });
+                       $scope.isLoading = false;                       
+                   }).catch(function (result) {
+                       $scope.isLoading = false;
+                   });
                }
 
                $scope.CleanTipoPersona = function () {

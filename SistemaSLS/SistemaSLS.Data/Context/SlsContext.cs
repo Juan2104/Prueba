@@ -14,12 +14,12 @@ namespace SistemaSLS.Data.Context
         public virtual DbSet<TipoPersona> TipoPersona { get; set; }
 
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<TipoPersona>()
-                .Property(e => e.id);
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<TipoPersona>()
+        //        .Property(e => e.id);
                 
-        }
+        //}
         public SlsContext() : base("name=SlsContext")
         {
             _contador++;

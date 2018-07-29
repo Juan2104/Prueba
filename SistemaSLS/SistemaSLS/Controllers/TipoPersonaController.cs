@@ -30,7 +30,7 @@ namespace SistemaSLS.Controllers
 
 
 
-        // GET: TipoPersona
+        //  : TipoPersona
         public ActionResult Index()
         {
             return View();
@@ -63,9 +63,9 @@ namespace SistemaSLS.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Delete(string TipoPersonaID)
+        public JsonResult Delete(string IdTipoPersona)
         {
-            return Json(TipoPersonaService.Delete(TipoPersonaID), JsonRequestBehavior.AllowGet);
+            return Json(TipoPersonaService.Delete(IdTipoPersona), JsonRequestBehavior.AllowGet);
         }
     }
 }

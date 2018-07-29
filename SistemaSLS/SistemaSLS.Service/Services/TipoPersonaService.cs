@@ -1,4 +1,4 @@
-﻿using SistemaSLS.Data.Repositories.Base;
+﻿    using SistemaSLS.Data.Repositories.Base;
 using SistemaSLS.Data.Context;
 using SistemaSLS.Data.Repositories;
 using SistemaSLS.Domain.Entities;
@@ -44,7 +44,7 @@ namespace SistemaSLS.Service.Services
 
         public int Edit(TipoPersona emp)
         {
-            var empToEdit = _TipoPersonaRepository.GetById(emp.id);
+            var empToEdit = _TipoPersonaRepository.GetById(emp.IdTipoPersona);
             empToEdit.descripcion = emp.descripcion;
 
             //empToEdit.= mesa.Descripcion;
